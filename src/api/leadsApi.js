@@ -21,7 +21,7 @@ export const fetchLeads = async ({ skip, limit, search, sortBy, sortOrder, filte
 
 // Create a new lead
 export const createLead = async (leadData) => {
-  const response = await apiClient.post("/leads", leadData);
+  const response = await apiClient.post("/leads/", leadData);
   return response.data;
 };
 
