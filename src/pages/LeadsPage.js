@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {
   Box,
-  IconButton,
   Menu,
   MenuItem,
   Typography,
@@ -113,7 +112,7 @@ const LeadsPage = () => {
           {currentUser && (
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Typography variant="subtitle1">
-                Hi, {currentUser.name}
+                Hi, {currentUser.name.trim().split(" ")[0]}
               </Typography>
               <Avatar
                 sx={{

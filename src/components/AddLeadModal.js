@@ -9,6 +9,7 @@ import {
   DialogActions,
   TextField,
   Button,
+  CircularProgress,
   FormControl,
   InputLabel,
   Select,
@@ -31,6 +32,7 @@ const AddLeadModal = ({ onClose, existingLead, onSuccess }) => {
   const [engaged, setEngaged] = useState(existingLead?.engaged || false);
   const initialLastContacted = existingLead?.last_contacted ? dayjs(existingLead.last_contacted) : null;
   const [lastContacted, setLastContacted] = useState(initialLastContacted);
+  const [saving, setSaving] = useState(false);
 
   // Validation state
   const [errors, setErrors] = useState({});
@@ -56,6 +58,7 @@ const AddLeadModal = ({ onClose, existingLead, onSuccess }) => {
   const handleSubmit = async () => {
     if (!validate()) return; // Stop submission if validation fails
     try {
+      setSaving(true);
       const leadData = {
         name,
         email,
@@ -79,6 +82,9 @@ const AddLeadModal = ({ onClose, existingLead, onSuccess }) => {
       const errMsg = error.response?.data?.detail || "Error saving lead";
       console.error("Error saving lead:", error);
       toast.error(errMsg);
+    }
+    finally {
+      setSaving(false);
     }
   };
 
@@ -189,8 +195,15 @@ const AddLeadModal = ({ onClose, existingLead, onSuccess }) => {
         <Button onClick={onClose} color="secondary" variant="outlined">
           Cancel
         </Button>
-        <Button onClick={handleSubmit} variant="contained" color="primary">
-          Save
+        <Button onClick={handleSubmit} disabled={saving} variant="contained" color="primary">
+          {saving ? (
+            <>
+              <CircularProgress size={24} color="inherit" sx={{ mr: 1 }} />
+              Saving...
+            </>
+          ) : (
+            "Save"
+          )}
         </Button>
       </DialogActions>
     </Dialog>

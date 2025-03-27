@@ -151,7 +151,7 @@ const LeadsTable = ({ onEdit }) => {
       {isLoading ? (
         <Box className="loader-box" display="flex" justifyContent="center" py={4}>
           {/* You can choose to use Lottie or MUI's CircularProgress */}
-          <Lottie animationData={loaderAnimation} style={{ width: 140, height: 140 }} />
+          <Lottie animationData={loaderAnimation} style={{ width: 150, height: 150 }} />
         </Box>
       ) : isError ? (
         <Typography color="error">Error loading leads.</Typography>
