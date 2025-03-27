@@ -139,7 +139,7 @@ const TableRow = ({ lead, onEdit, onDeleteSuccess }) => {
           <StageIcons stage={lead.stage} />
         </td>
         <td>{engagedBadge}</td>
-        <td>{lead.last_contacted ? formatDate(lead.last_contacted) : ""}</td>
+        <td>{lead.last_contacted ? formatDate(lead.last_contacted) : "-"}</td>
         <td>{lead.created_at ? formatDate(lead.created_at) : ""}</td>
         <td className="text-end">
           <IconButton onClick={handleMenuOpen} size="small">
