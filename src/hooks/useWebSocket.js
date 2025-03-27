@@ -4,7 +4,7 @@ export const useWebSocket = ({ onMessage }) => {
   const wsRef = useRef(null);
 
   useEffect(() => {
-    wsRef.current = new WebSocket("ws://localhost:8000/ws");
+    wsRef.current = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
     wsRef.current.onopen = () => {
       console.log("WebSocket connected");
