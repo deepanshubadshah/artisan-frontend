@@ -5,6 +5,9 @@ This repository contains the ReactJS frontend for the Artisan project. The front
 ## URL: 
 Try the app: https://main.d3v82t4zx92fjf.amplifyapp.com/
 
+## Demo:
+https://www.loom.com/share/7220a5aa11fc4c708f835401da0288a2?sid=453e5a51-2275-4103-844e-5257bb92c543
+
 ## Features
 
 - **User Authentication:** Login and protected routes.
