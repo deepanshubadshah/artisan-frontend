@@ -119,7 +119,7 @@ const LeadsTable = ({ onEdit }) => {
             size="small"
             placeholder="Search by lead’s name, email or company name"
             value={search}
-            onChange={(e) => {setSearch(e.target.value); setPage(1);}}
+            onChange={(e) => {setPage(1); setSearch(e.target.value);}}
             InputProps={{
               startAdornment: (
                 <IconButton edge="start" disabled>
