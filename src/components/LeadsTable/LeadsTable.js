@@ -84,6 +84,7 @@ const LeadsTable = ({ onEdit }) => {
     setFilters(resetFilters);
     setSortBy("created_at");
     setSortOrder("desc");
+    setPage(1);
     refetch();
   };
 
@@ -118,7 +119,7 @@ const LeadsTable = ({ onEdit }) => {
             size="small"
             placeholder="Search by lead’s name, email or company name"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {setSearch(e.target.value); setPage(1);}}
             InputProps={{
               startAdornment: (
                 <IconButton edge="start" disabled>
